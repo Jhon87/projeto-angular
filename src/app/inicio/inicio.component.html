@@ -3,7 +3,7 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="./assets/img/banner1.jpg" class="d-block w-100" alt="Promoções de jogos">
+                    <img src="./assets/img/banner1.jpg" class="d-block w-100" alt="Promoção de um jogo">
                 </div>
                 <div class="carousel-item">
                     <img src="./assets/img/banner2.jpg" class="d-block w-100" alt="Promoção do mês">
@@ -24,69 +24,25 @@
             </button>
         </div>
     </section>
-
     <h2>Jogos em Promoção</h2>
-
     <mat-grid-list cols="3">
-        <mat-grid-tile>
+        <mat-grid-tile *ngFor="let produto of produtos">
             <mat-card class="example-card">
-                <img mat-card-image src="./assets/img/jogo1.jpg" alt="Jogo 1">
+                <img mat-card-image src="./assets/img/{{produto.foto}}" alt="produto">
                 <mat-card-header>
-                    <mat-card-title>Jogo 1</mat-card-title>
+                    <mat-card-title>{{produto.produto}}</mat-card-title>
                 </mat-card-header>
-
                 <mat-card-content>
                     <p>
-                        Descrição do jogo 1.
+                        {{produto.descricao}}
                     </p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <p>R$ 300,00</p>
-                    <button mat-button>Comprar</button>
-                </mat-card-actions>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <mat-card class="example-card">
-                <img mat-card-image src="./assets/img/jogo2.jpg" alt="Jogo 2">
-                <mat-card-header>
-                    <mat-card-title>Jogo 2</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
                     <p>
-                        Descrição do jogo 2.
-                    </p>
                 </mat-card-content>
                 <mat-card-actions>
-                    <p>R$ 250,00</p>
-                    <button mat-button>Comprar</button>
-                </mat-card-actions>
-            </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <mat-card class="example-card">
-                <img mat-card-image src="./assets/img/jogo3.jpg" alt="Jogo 3">
-                <mat-card-header>
-                    <mat-card-title>Jogo 3</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
-                    <p>
-                        Descrição do jogo 3.
-                    </p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <p>R$ 150,00</p>
-                    <button mat-button>Comprar</button>
+                    <p>{{produto.preco | currency : 'BRL'}}</p>
+                    <button mat-raised-button color="primary">Comprar</button>
                 </mat-card-actions>
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
-
-
-
-
 </main>
